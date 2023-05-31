@@ -5,7 +5,7 @@
 ## Course Outline
 * [Unit 1](#unit-1--fundamentals-of-front-end-development) - Fundamentals of Front End Development
 
-* [Unit 2](#unit-2--back-end-development) - Backend Development
+* [Unit 2](#unit-2--back-end-development) - Back-end Development
 
 * [Unit 3](#unit-3--react-fundamentals) - React Fundamentals
 
@@ -30,7 +30,7 @@
 - Async Programming, promises DOM Intro APIs, AJAX
 
 
-## Unit 2 <br> Backend Development
+## Unit 2 <br> Back-end Development
 
 ### Content
 

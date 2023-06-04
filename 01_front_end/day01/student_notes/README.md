@@ -1,4 +1,4 @@
-![General Assembly](ga_cog.png)
+![General Assembly](/ga_cog.png)
 
 # Intro to JS
 

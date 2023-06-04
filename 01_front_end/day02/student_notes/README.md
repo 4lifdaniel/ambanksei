@@ -1,4 +1,4 @@
-![General Assembly](ga_cog.png)
+![General Assembly](/ga_cog.png)
 
 ## Introduction to Math Methods
 JavaScript has a little 'library' of math functions that we can access by typing Math and then a . and then whatever method we want, finally we put the things we want to evaluate inside the parenthesis.

@@ -4,16 +4,16 @@
 JavaScript has a little 'library' of math functions that we can access by typing Math and then a . and then whatever method we want, finally we put the things we want to evaluate inside the parenthesis.
 
 There are only a handful of methods we'll find handy for most of our work in this course:
-• Math.abs() - gives us the absolute value
-• Math.PI - gives us the value of PI
-• Math.ceil() - always rounds a floating point number up
-• Math.floor() - always rounds a floating point number down
-• Math.max() - finds the largest number
-• Math.min() - finds the smallest number
-• Math.pow() - raises a number to the
-• Math.random() - generates a random number between 0 -1
-• Math.round() - rounds a floating point number up or down, depending if the decimal is greater than or less than 0.5
-• Math.sqrt() - finds the square root of a number
+- Math.abs() - gives us the absolute value.
+- Math.PI - gives us the value of PI.
+- Math.ceil() - always rounds a floating point number up.
+- Math.floor() - always rounds a floating point number down.
+- Math.max() - finds the largest number.
+- Math.min() - finds the smallest number.
+- Math.pow() - raises a number to the.
+- Math.random() - generates a random number between 0 -1.
+- Math.round() - rounds a floating point number up or down, depending if the decimal is greater than or less than 0.5.
+- Math.sqrt() - finds the square root of a number.
 
 ## Intro to Control Flow
 
@@ -122,25 +122,30 @@ false && false
 ```
 In these examples, each side is the same (they are equivalent), but in this case, both sides do not both evaluate to true. If an && statement begins with false, it automatically evaluates to false. Both sides must evaluate to `true` to `&&` to result in `true`.
 
-|| or: evaluates to true if either side is true.
+- `||` or: evaluates to true if either side is true.
+```js
 true || false
 false || false
+```
 Short Circuiting - we can use the or operator to return a valid value to use as a default
+```js
 username = ''
 let user = username || 'Bob Bobby Bob'
 console.log(user)
+```
 
 ### Boolean order of evaluation
 Order of evaluation matters! When you have a complex statement, be sure to remember the order things will be evaluated
 
-1. >, <, >=, <=
-2. ==, ===
-3. &&
-4. ||
+1. `>`, `<`, `>=`, `<=`
+2. `==`, `===`
+3. `&&`
+4. `||`
 
 Don't memorize, just look in the reference.
 
 ### Modulo
+
 `Modulus as conditionals`
 
 The modulo operator (also referred to as modulus) is represented as a `%` in JavaScript. The Modulo returns the remainder of Euclidean division (Don't worry! It's not as scary as it sounds! Let's look at examples)
@@ -168,7 +173,8 @@ if (5 % 2 == 0) {
 }
 ```
 
-Note that the console.log that will be run inside the if portion is tabbed over once to denote that it should be run if this portion of the code is executed.
+Note that the `console.log` that will be run inside the if portion is tabbed over once to denote that it should be run if this portion of the code is executed.
+
 **Incorrect**:
 ```js
 if (5 % 2 == 0) {
@@ -328,3 +334,4 @@ Array elements can be can be other arrays.
 
 - [Java script code conventions](http://javascript.crockford.com/code.html)
 
+- [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)

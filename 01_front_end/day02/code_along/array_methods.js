@@ -48,22 +48,26 @@ fruits.splice(1,0,'mango','orange');
 // const joinedString = 'apple, banana, cempedak';
 // console.log(joinedString.split(', ')); //To split string into array
 
-const multiDArray = [
-    [0,1,2],
-    [3,4,5],
-    [7,8,9]
-];
+// const multiDArray = [
+//     [0,1,2],
+//     [3,4,5],
+//     [7,8,9]
+// ];
 
-console.log(multiDArray);
-console.log(multiDArray[0]); //Returns [0,1,2]
-console.log(multiDArray[0][2]);
+// console.log(multiDArray);
+// console.log(multiDArray[0]); //Returns [0,1,2]
+// console.log(multiDArray[0][2]);
 
 const confectionary = [["mounds", "almond joy"],
  ["lindt truffles", "easter egg", 
  ["kitkat bar 1", "kitkat bar 2", 'kitkat bar 3', "kitkat bar 4"]]];
 
- //How would you access "kitkat bar3"?
- 
+ //How would you access "kitkat bar 3"?
+console.log(confectionary[1]);
+
+console.log(confectionary[1][2]);
+
+console.log(confectionary[1][2][2]);
 
 
 

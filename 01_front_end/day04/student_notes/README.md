@@ -248,3 +248,13 @@ You can use object properties with conditionals, loops, etc
 You can test to see if a property exists on an object.
 
 Accessing a property that doesn't exist on an object gives you `undefined` which is treated as `false`.
+
+## Callback
+
+A callback is a piece of code that is passed as an argument to another function and is intended to be called at a specific time or in response to a particular event. When the conditions are met, the function will "call back" or execute the provided callback function.
+
+In JavaScript, callbacks are commonly used due to the language's asynchronous nature and event-driven programming paradigm.
+
+Callbacks are used to control the flow of a program and enable asynchronous programming. They are commonly used in situations where the result of an operation may not be immediately available, such as when making API requests, reading files, or performing database operations. Rather than waiting for the operation to complete, the program can continue executing other tasks. Once the operation is finished, the callback function is called to handle the result.
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Sample Form</title>
+    <script>
+      function myFunction(theForm) {
+        let formid = theForm.id;
+        let userName = theForm.uname.value;
+        let password = theForm.password.value;
+        let radioButton = theForm.fav_langauge.value;
+        let windowsBox = theForm.windows.checked;
+        let language = theForm.language.value;
+        alert(`Form id: ${formid}`);
+        alert(`Hi ${userName}, your password is ${password} 
+      , your favourite lanaguge is ${radioButton} 
+      you checked ${windowsBox} and your preferred language is 
+      ${language}`);
+      }
+    </script>
+  </head>
+  <body>
+    <form id="sample" action="#" onsubmit="myFunction(this)" method="get">
+      <label>User Name:</label>
+      <input type="text" id="uname" required />
+      <br />
+      <br />
+      <label>Age:</label>
+      <input type="number" id="age" min="1" max="10" />
+      <br />
+      <br />
+      <label>Email Address:</label>
+      <input type="email" id="email" />
+      <br />
+      <br />
+      <label>Password:</label>
+      <input type="password" id="password" />
+      <br />
+      <br />
+      <label>Choose your favourite Language</label><br />
+      <input type="radio" id="python" name="fav_langauge" value="python" />
+      <label for="python">Python</label>
+      <input
+        type="radio"
+        id="javascript"
+        name="fav_langauge"
+        value="javascript"
+      />
+      <label for="javascript">Java Script</label>
+      <br />
+      <br />
+      <p>Do you have Windows, MAC or both:</p>
+      <input type="checkbox" id="windows" value="windows" />
+      <label for="windows">Windows</label>
+      <input type="checkbox" id="mac" value="mac" />
+      <label for="mac">Mac</label>
+      <br />
+      <br />
+      <label for="language">Preferred Language:</label>
+      <select id="language">
+        <option value="english">English</option>
+        <option value="bahasa">Bahasa</option>
+        <option value="chinese">Chinese</option>
+      </select>
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>

@@ -48,21 +48,32 @@ Either a resolved value Or a rejection (an error that tells us why it wasn't res
 #### States and Fates
 
 Promises have three mutually exclusive potential states:
+
 `Fulfilled`: The action relating to the promise succeeded.
+
 `Rejected`: The action relating to the promise failed.
+
 `Pending`: Hasn't fulfilled or rejected yet.
+
 We say that a promise is `settled` if it isn't pending
 
 ##### Some Terminology
 
-Executor: A function that contains the producing code
-Fulfilled: Succeeded
-Rejected: Failed
-Pending: Waiting
-Settled: Not pending
-Resolved: Finished
-Unresolved: If trying to resolve or reject will make an impact
-Thenable: A piece of data that is promise-like (it has a .then method)
+Executor: A function that contains the producing code.
+
+Fulfilled: Succeeded.
+
+Rejected: Failed.
+
+Pending: Waiting.
+
+Settled: Not pending.
+
+Resolved: Finished.
+
+Unresolved: If trying to resolve or reject will make an impact.
+
+Thenable: A piece of data that is promise-like (it has a `.then` method).
 
 #### To create a promise:
 
@@ -468,8 +479,12 @@ click on our button, call the <code>handleClickEvent()</code> function.
 
 ### Reference
 
-[Callbacks](https://www.w3schools.com/js/js_callback.asp)
-[Promises](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises)
-[Async](https://www.w3schools.com/js/js_async.asp)
-[DOM Events](https://www.w3schools.com/jsref/dom_obj_event.asp)
-[JS Events](https://www.javatpoint.com/javascript-events)
+- [Callbacks](https://www.w3schools.com/js/js_callback.asp)
+
+- [Promises](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises)
+
+- [Async](https://www.w3schools.com/js/js_async.asp)
+
+- [DOM Events](https://www.w3schools.com/jsref/dom_obj_event.asp)
+
+- [JS Events](https://www.javatpoint.com/javascript-events)

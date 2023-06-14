@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First AJAX Page</title>
+    <script defer src="Ajax.js"></script>
+  </head>
+  <body>
+    <!-- Get Data -->
+    <div id="ajaxId">
+      <p>This is a sample text</p>
+    </div>
+    <button onclick="ajaxcall()">Call Ajax</button>
+    <br />
+    <br />
+    <!-- Post Data -->
+    <div>
+      <input type="text" id="name" placeholder="Name" required /><br /><br />
+      <input
+        type="text"
+        id="job"
+        placeholder="Job Details"
+        required
+      /><br /><br />
+      <p id="response"></p>
+      <br /><br />
+      <button onclick="ajaxPost()">Post Data</button>
+      <button onclick="ajaxPut()">Put Data</button>
+      <button onclick="ajaxDel()">Delete Data</button>
+    </div>
+  </body>
+</html>

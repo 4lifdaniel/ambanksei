@@ -129,6 +129,12 @@ We'll be working with one package throughout this unit called `express` - which 
 
 At first, we'll be running our express server in terminal and we'll interact with it in our browser. Our browser will send requests to our express app, and our express app will send responses back to our own browser.
 
+## Read URL parameters
+
+Most of the time, we'll use segments in the path section of the URL to modify how our application works.
+
+To do this, we'll use request parameters. To the user, it'll just look like an extension of the url path.
+
 ## Reference:
 
 - [HTTP Headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)

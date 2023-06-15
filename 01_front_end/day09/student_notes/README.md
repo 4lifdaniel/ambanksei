@@ -1,7 +1,5 @@
 [![General Assembly Logo](/ga_cog.png)](https://generalassemb.ly)
 
-## Framing
-
 Over the past few weeks we've learned how to build our own websites, using a variety of technologies. But the content on these sites has been limited to whatever we type into the html directly. What if there were another way? (there is)
 
 Today, we're going to learn how to request information from third-party databases, and how to make our applications more dynamic by making it so our application doesn't need to refresh the page to make a request to an API server!
@@ -157,16 +155,18 @@ The callback function is defined in the `onload` property of the XMLHttpRequest 
 **onreadystatechange**: Defines a function to be called when the readyState property changes
 
 **readyState**: Holds the status of the XMLHttpRequest.
-0: request not initialized.
-1: server connection established.
-2: request received.
-3: processing request.
-4: request finished and response is ready.
+
+- 0: request not initialized.
+- 1: server connection established.
+- 2: request received.
+- 3: processing request.
+- 4: request finished and response is ready.
 
 **status**: Returns the status-number of a request:
-200: "OK"
-403: "Forbidden"
-404: "Not Found"
+
+- 200: "OK".
+- 403: "Forbidden".
+- 404: "Not Found".
 
 **statusText**: Returns the status-text (e.g. "OK" or "Not Found").
 

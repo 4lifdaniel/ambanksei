@@ -1,0 +1,14 @@
+{
+  "name": "wan_suen",
+  "version": "1.0.0",
+  "description": "Wan Suen likes to go go healing",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bharath",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

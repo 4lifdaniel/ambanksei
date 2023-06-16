@@ -1,11 +1,13 @@
 const express = require("express");
+require("dotenv").config();
 
+// console.log(process.env);
 // console.log(express);
 
 let app = express();
 // console.log(app);
 
-const port = 3000;
+const port = process.env.PORT || 3002;
 
 const plants = ["Abelia", "Bonzai", "Money Plant", "Cactus", "Grass", "Barley"];
 
@@ -38,7 +40,8 @@ app.get("/awesome", (req, res) => {
 
 app.get("/hello/:firstname/:lastname", (req, res) => {
   console.log(req.params);
-  res.send(`Hello Mr/Ms.${req.params.firstname} ${req.params.lastname}`);
+  let title = req.query.title || "Mr/Ms";
+  res.send(`Hello ${title}.${req.params.firstname} ${req.params.lastname}`);
 });
 
 app.listen(port, () => {

@@ -12,14 +12,17 @@ app.get("/", (req, res) => {
 
 //To return all the fruits
 app.get("/fruits", (req, res) => {
-  res.send(fruits);
+  // res.send(fruits);
+  res.render("index.ejs", {
+    fruitsData: fruits,
+  });
 });
 
 //To retrieve individual fruit details
 app.get("/fruits/:index", (req, res) => {
   //   res.send(fruits[req.params.index]);
   res.render("show.ejs", {
-    fruitDetails: fruits[req.params.index]
+    fruitDetails: fruits[req.params.index],
   });
 });
 

@@ -71,7 +71,24 @@ This will take incoming strings from the body that are url encoded and parse the
 
 extended: `false` - has to do with how the data is being parsed (and what kind can be parsed). For this unit, we'll just set this to false.
 
+### Create a static files folder for CSS/JS
+
+- CSS/JS code doesn't change with server-side data
+- We can toss any static files into a 'public' directory
+  - static means unchanging
+  - dynamic means changing depending on data
+
+### Method-Override
+
+The method-override middleware lets us use HTTP verbs like PUT and DELETE with clients that don’t support it.
+
+When we click "DELETE" on our index page (`index.ejs`), the form needs to make a DELETE request to our DELETE route.
+
+The problem is that forms can't make DELETE requests. Only POST and GET. We can override this, though using an npm package called `method-override`
+
 ### Reference:
 
 - [CURL](https://everything.curl.dev/)
 - [URL Encoded](https://expressjs.com/en/api.html#express.urlencoded)
+- [Static Files](https://expressjs.com/en/starter/static-files.html)
+- [Method Override](https://www.npmjs.com/package/method-override)

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Fruit Details</title>
+  </head>
+  <body>
+    <h1>Edit Fruit Page</h1>
+    <form action="/fruits/<%= index %>?_method=PUT" method="POST">
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Name"
+        value="<%= fruit.name %>"
+        required
+      /><br /><br />
+      <input
+        type="text"
+        name="color"
+        id="color"
+        placeholder="Color"
+        value="<%= fruit.color %>"
+        required
+      /><br /><br />
+      <label for="isReadyToEat">Is Ready To Eat</label>
+      <input
+        type="checkbox"
+        name="readyToEat"
+        id="isReadyToEat"
+        <% if(fruit.readyToEat){%>
+            checked 
+        <% } %>
+        /> <br /><br />
+      <input type="submit" value="Update Fruit" />
+    </form>
+  </body>
+</html>

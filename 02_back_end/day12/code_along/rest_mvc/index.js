@@ -45,6 +45,7 @@ app.get("/fruits/new", (req, res) => {
 
 //To retrieve individual fruit details
 app.get("/fruits/:index", (req, res) => {
+  // console.log(req);
   //   res.send(fruits[req.params.index]);
   res.render("show.ejs", {
     fruitDetails: fruits[req.params.index],
@@ -65,8 +66,28 @@ app.post("/fruits", (req, res) => {
   res.redirect("/fruits");
 });
 
+//To delete a fruit from fruits array
 app.delete("/fruits/:index", (req, res) => {
   fruits.splice(req.params.index, 1);
+  res.redirect("/fruits");
+});
+
+//To show the edit page
+app.get("/fruits/:index/edit", (req, res) => {
+  res.render("edit.ejs", {
+    fruit: fruits[req.params.index],
+    index: req.params.index,
+  });
+});
+
+//To update a fruit from fruits array
+app.put("/fruits/:index", (req, res) => {
+  if (req.body.readyToEat === "on") {
+    req.body.readyToEat = true;
+  } else {
+    req.body.readyToEat = false;
+  }
+  fruits[req.params.index] = req.body;
   res.redirect("/fruits");
 });
 

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 //Import the model details
 const accounts = require("../models/account");
@@ -13,7 +14,9 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   accounts.findOne({ username: req.body.username }).then((foundUser) => {
     if (foundUser) {
-      if (req.body.password === foundUser.password) {
+      //To compare user entered password with encrypted password in database
+      if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+        //if (req.body.password === foundUser.password) {
         //Set the found user details in session with key currentUser
         req.session.currentUser = foundUser;
         res.redirect("/");
@@ -25,6 +28,27 @@ router.post("/", (req, res) => {
       res.redirect("/login");
     }
   });
+});
+
+router.get("/", (req, res) => {
+  // finds all users
+  User.find({}).then((foundUsers) => {
+    // renders the room page
+    res.render("room/index.ejs", {
+      // passes the found users to the room page
+      users: foundUsers,
+    });
+  });
+});
+
+//To share secret page
+router.get("/secret", (req, res) => {
+  //Validate if there is currentUser details in session
+  if (req.session.currentUser) {
+    res.send("Secret message loading....");
+  } else {
+    res.redirect("/");
+  }
 });
 
 module.exports = router;

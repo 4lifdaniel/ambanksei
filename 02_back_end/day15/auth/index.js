@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 
@@ -52,8 +53,8 @@ app.use("/signup", signupController);
 
 //Load home page
 app.get("/", (req, res) => {
-    //res.render("index.ejs", { fruits: fruitDetails });
-  res.render("index.ejs", {currentUser: req.session.currentUser});
+  //res.render("index.ejs", { fruits: fruitDetails });
+  res.render("index.ejs", { currentUser: req.session.currentUser });
 });
 
 app.listen(port, () => {

@@ -1,0 +1,24 @@
+/* Styles for elements with the class name "App" */
+.App {
+  font-family: sans-serif; /* Set font family to sans-serif */
+  text-align: center; /* Center the text horizontally */
+}
+
+/* Styles for sections with the class name "cards" */
+section.cards {
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically at the center */
+}
+
+/* Styles for elements with the class name "card" that are descendants of sections with the class name "cards" */
+section.cards .card {
+  margin: 0 10px; /* Set margin to 0 at the top and bottom, 10px on the left and right */
+}
+
+/* Styles for elements with the class names "card-img", "card-img-bottom", and "card-img-top" */
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  height: 300px; /* Set height to 300 pixels */
+  object-fit: cover; /* Resize content to fit while maintaining aspect ratio */
+}

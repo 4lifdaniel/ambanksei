@@ -217,7 +217,7 @@
 
 // console.log(secondCar)
 
-// const num = 10;
+const num = 10;
 // let result = "";
 // if (num > 0) {
 //   result = "positive";

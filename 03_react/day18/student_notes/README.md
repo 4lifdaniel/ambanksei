@@ -1,5 +1,194 @@
 [![General Assembly Logo](/ga_cog.png)](https://generalassemb.ly)
 
+## ES6 (ECMAScript 6)
+
+### What is ES6?
+
+ES6 stands for ECMAScript 6.
+
+ECMAScript was created to standardize JavaScript, and ES6 is the 6th version of ECMAScript, it was published in 2015, and is also known as ECMAScript 2015.
+
+React uses ES6, and you should be familiar with some of the new features like:
+
+- Classes.
+- Arrow Functions.
+- Variables (let, const, var).
+- Array Methods like `.map()`.
+- Destructuring.
+- Modules.
+- Ternary Operator.
+- Spread Operator.
+
+**Spread operator**:
+The JavaScript spread operator `(...)` allows us to quickly copy all or part of an existing array or object into another array or object.
+
+```js
+//SPREAD (take out of array)
+//Let's look at an awesome Math method
+const x = -5;
+const y = 5;
+
+console.log(Math.max(x, y)); // 5
+
+// But what if you have
+const z = [1, 5, -2, 8, -9, 17, -22];
+// Using Math.max is doable, but cumbersome with an array.
+
+// Now you can do
+console.log(Math.max(y, ...z)); // 17
+
+// Easy as pie!
+```
+
+The spread operator is often used in combination with destructuring.
+
+```js
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const [one, two, ...rest] = numbers;
+
+console.log(one); //1
+console.log(two); //2
+console.log(rest); //[3,4,5,6]
+```
+
+#### Spread Operator for Objects:
+
+The spread operator can also be used with objects to create a new object by merging the properties of one or more existing objects.
+
+You can modify or add properties to an object using the spread operator.
+
+```javascript
+const person = { name: "John", age: 30 };
+const updatedPerson = { ...person, age: 31, city: "New York" };
+
+console.log(updatedPerson); // Output: { name: 'John', age: 31, city: 'New York' }
+console.log(person); // Output: {name: 'John', age: 30 };
+```
+
+The spread operator provides a convenient way to manipulate arrays and objects in JavaScript by creating new instances with expanded or merged elements/properties.
+
+The difference between `const newObject1 = originalObject;` and `const newObject = { ...originalObject };` lies in how they create references to the original object.
+
+**const newObject1 = originalObject;**:
+
+- This line of code assigns `newObject1` as a reference to the originalObject.
+
+- It means that `newObject1` and `originalObject` point to the same object in memory.
+
+- If any modifications are made to `newObject1` or `originalObject`, both variables will reflect those changes because they reference the same underlying object.
+
+### Destructuring
+
+Destructuring in JavaScript is a convenient way to extract values from arrays or objects and assign them to variables. It allows you to extract specific values and store them in separate variables, making code more concise and readable.
+
+#### Destructuring Arrays
+
+```js
+//Destructuring in Arrays
+const numbers = [1, 2, 3, 4];
+
+const firstNumber = numbers[0];
+const secondNumber = numbers[1];
+const thirdNumber = numbers[2];
+
+//Destructuring the array values same as above one
+const [firstNumber, secondNumber, thirdNumber] = numbers;
+
+console.log(firstNumber, secondNumber, thirdNumber);
+```
+
+#### Destructuring Objects
+
+```js
+//Destructuring of objects
+const person = {
+  name: "John",
+  age: 5,
+  country: "Malaysia",
+};
+
+//Store `John` to name
+const { name } = person;
+
+//Same as above code
+//const name = person.name;
+```
+
+By learning destructuring in JavaScript, you will gain a fundamental skill that is widely used in React development. It will help you work with `props`, `state`, and `component composition` more effectively, leading to cleaner and more efficient code.
+
+# Mutable VS Immutable
+
+One of the things that makes React very quick is that it adheres to the concept of immutable state. But what does immutable mean?
+
+Well at its root is the word _mutate_. When we mutate something we change it. We modify it in place. When Bruce Banner turns into the Incredible Hulk, he mutates. He changes his body.
+
+Therefore if somehting is _immutable_, it cannot change. In JavaScript, immutable data cannot change its structure or the data in it. It’s making that value a fact, a source of truth.
+
+If a data structure is _mutable_, it is emphemeral, fleeting, and subject to any change at any given point in time.
+
+**Mutable**: operations that modify the original data.
+**Immutable**: Operations create new copies or modified versions.
+
+React doesn't generally like when we mutate the data.
+The reason being when we mutate an object we don't get new object,
+so it is hard for react to know what has changed or even anything has changed at all.
+
+When the underlying data changes, React has to get the work to update the User Interface(view).
+For this it compares the old data with new data.
+If we mutate the old data then React doesn't know what has changed.
+
+Let's have a look at some array methods that are mutable and immutable:
+
+| Mutable     | Immutable                |
+| ----------- | ------------------------ |
+| `splice()`  | `slice()`                |
+| `push()`    | `concat()`               |
+| `pop()`     | `slice(-1)`              |
+| `shift()`   | `slice(1)`               |
+| `unshift()` | `[element, ...oldArray]` |
+| `sort()`    | `slice(0).sort()`        |
+| `reverse()` | `slice(0).reverse()`     |
+| N/A         | `filter()`               |
+| N/A         | `map()`                  |
+| N/A         | `reduce()`               |
+
+In JavaScript, `mutable operations modify the original data directly`, while `immutable operations create new copies or modified versions` of the original data without altering it.
+
+### Terenary Operator
+
+The ternary operator is a concise way to write conditional statements in JavaScript. It allows you to assign a value or execute an expression based on a condition. The syntax of the ternary operator is as follows:
+
+```javascript
+condition ? expressionIfTrue : expressionIfFalse;
+```
+
+The condition is evaluated first. If the condition is true, the expressionIfTrue is executed, and its value is returned. If the condition is false, the expressionIfFalse is executed, and its value is returned.
+
+Let's go through some examples to understand how the ternary operator works.
+
+Usual way of using if else:
+
+```javascript
+const num = 10;
+let result = "";
+if (num > 0) {
+  result = "positive";
+} else {
+  result = "negative";
+}
+```
+
+If we implement the above using terenary operator:
+
+```javascript
+const num = 10;
+//Ternary operator expression?<if true>:<if false>;
+let result = num > 0 ? "positive" : "negative";
+
+console.log(result);
+```
+
 # Passing Props
 
 ## Learning Objectives

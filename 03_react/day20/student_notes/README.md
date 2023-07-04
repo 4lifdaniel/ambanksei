@@ -74,13 +74,12 @@ Take a look at the below sites. Despite having a navigation menu and unique link
         <th><h4>Cons</h4></th>
     </tr>
     <tr>
-        <td>Routing `between components is fast as the amount of data that renders is less`. The rest of the data is rendered by the DOM, and even when there's tons of HTML and CSS to render, the DOM handles that part in the blink of an eye.</td>
-		
-        <td>The `initialloading time is considerably large as all the routes, components, and HTML have to be loaded at once when the application first mounts`. The whole website or web app needs to be loaded on the first request.</td>
+        <td>Routing between components is fast as the amount of data that renders is less. The rest of the data is rendered by the DOM, and even when there is tons of HTML and CSS to render, the DOM handles that part in the blink of an eye.</td>
+        <td> The initial loading time is considerably large as all the routes, components, and HTML have to be loaded at once when the application first mounts. The whole website or web app needs to be loaded on the first request.</td>
     </tr>
     <tr>
-        <td>For `better user experience`, animations and transitions can be easily implemented when switching between different components.</td>
-        <td>There is `unnecessary data download` time for unusable views that cannot be anticipated on the first render of the application.</td>
+        <td>For better user experience, animations and transitions can be easily implemented when switching between different components.</td>
+        <td>There is unnecessary data download time for unusable views that cannot be anticipated on the first render of the application.</td>
     </tr>
 </table>
 

@@ -1,0 +1,72 @@
+/* Resetting margin, padding, and setting font size to 14pt for the entire page.
+   The width and height are set to 100% of the viewport width and height respectively. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14pt;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Styling for the navigation bar at the top of the page.
+      Background color is black, text color is white.
+      The flex display is used to horizontally align items in the navigation bar.
+      Space between items is evenly distributed, and items are vertically aligned in the center.
+      Padding of 0 on top and bottom, and 20px on the left and right. */
+nav {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Setting a maximum height of 50 pixels for the images within the navigation bar.
+      Adding 5 pixels of padding around the images.
+      Displaying the images as inline-block and vertically aligning them in the middle. */
+nav img {
+  max-height: 50px;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Resetting margin for the heading element.
+      Displaying it as inline-block and vertically aligning it in the middle. */
+nav h1 {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Styling for the links in the navigation bar.
+      Text color is white.
+      Displayed as inline-block.
+      Padding of 20px on all sides.
+      Font size is 1.2em.
+      Text decoration is removed. */
+nav a {
+  color: white;
+  display: inline-block;
+  padding: 20px;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+/* Styling for the links when hovered over.
+      The background color changes to #282c34. */
+nav a:hover {
+  background: #282c34;
+}
+
+/* Styling for the main content area of the page.
+      Width is set to 900 pixels.
+      The content is horizontally centered using auto margins.
+      Height is set to 100% of the parent container. */
+main {
+  width: 900px;
+  margin: auto;
+  height: 100%;
+}

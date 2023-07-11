@@ -196,15 +196,13 @@ const BarChart = () => {
 };
 
 export default BarChart;
-
 ```
 
 Similarly, create one more file called `DualBarChart.js` in the `components` directory and add the following code to the file:
 
 **DualBarChart.js**:
 
-```js 
-
+```js
 import { Bar } from "react-chartjs-2";
 import { useState, useEffect } from "react";
 import { fetchData } from "../apiService";
@@ -274,14 +272,13 @@ const DualBarChart = () => {
 };
 
 export default DualBarChart;
-
 ```
 
 Similarly, create one more file called `DualAxisChart.js` in the `components` directory and add the following code to the file:
 
 **DualAxisChart.js**:
 
-```js 
+```js
 import { Bar } from "react-chartjs-2";
 import { useState, useEffect } from "react";
 import { fetchData } from "../apiService";
@@ -355,9 +352,7 @@ const DualAxisChart = () => {
 };
 
 export default DualAxisChart;
-
 ```
-
 
 ### Step 5: Modify App component
 
@@ -381,7 +376,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 ### Step 6: Run the app
@@ -396,5 +390,7 @@ The app will open in your browser at `http://localhost:3000`, and you should see
 
 Please feel free to customize the components, styles, and API endpoints according to your needs.
 
+## Reference:
 
-
+- [Chart.js Reference](https://www.chartjs.org/docs/latest/getting-started/usage.html)
+- [React-Chartjs-2](https://react-chartjs-2.js.org/examples)

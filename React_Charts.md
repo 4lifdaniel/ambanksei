@@ -16,7 +16,7 @@ Navigate to the project directory and install `Chart.js` and `react-chartjs-2` u
 
 ```bash
 cd covid-charts-app
-npm i react-chartjs-2 chart.js
+npm i react-chartjs-2 chart.js chartjs-plugin-datalabels
 ```
 
 ### Step 3: Create API Service
@@ -69,16 +69,6 @@ Create a new file called `LineChart.js` in the `components` directory and add th
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { fetchData } from "../apiService";
-import {
-  Chart,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-} from "chart.js";
-
-//Chart.register() function is used to register scales and elements with the Chart.js library.
-Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
 
 const LineChart = () => {
   const [chartData, setChartData] = useState(null);
@@ -146,16 +136,11 @@ Similarly, create one more file called `BarChart.js` in the `components` directo
 import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { fetchData } from "../apiService";
-import {
-  Chart,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  BarElement,
-} from "chart.js";
+import { Chart } from "chart.js/auto";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 //Chart.register() function is used to register scales and elements with the Chart.js library.
-Chart.register(CategoryScale, LinearScale, PointElement, BarElement);
+Chart.register(ChartDataLabels);
 
 const BarChart = () => {
   const [chartData, setChartData] = useState(null);
@@ -185,15 +170,13 @@ const BarChart = () => {
         const cases = top10Data.map((country) =>
           parseInt(country["Total Recovered_text"].replace(",", ""))
         );
-
-        //Create the chart data
         const chartData = {
           labels: labels,
           datasets: [
             {
               label: "New Recovered",
               data: cases,
-              backgroundColor: "rgba(75, 192, 192, 0.6)",
+              backgroundColor: "blue",
             },
           ],
         };
@@ -213,7 +196,168 @@ const BarChart = () => {
 };
 
 export default BarChart;
+
 ```
+
+Similarly, create one more file called `DualBarChart.js` in the `components` directory and add the following code to the file:
+
+**DualBarChart.js**:
+
+```js 
+
+import { Bar } from "react-chartjs-2";
+import { useState, useEffect } from "react";
+import { fetchData } from "../apiService";
+
+const DualBarChart = () => {
+  const [chartData, setChartData] = useState(null);
+
+  useEffect(() => {
+    fetchData("/v1")
+      .then((data) => {
+        // Filter out entries with "N/A" in Total Cases_text or Total Recovered_text
+        const filteredData = data.filter(
+          (country) =>
+            country["Total Cases_text"] !== "N/A" &&
+            country["Total Recovered_text"] !== "N/A"
+        );
+
+        // Sort the filtered data based on total cases
+        const sortedData = filteredData.sort(
+          (a, b) => b["Total Cases_text"] - a["Total Cases_text"]
+        );
+
+        // Retrieve only top 10 records excluding the world
+        const top10Data = sortedData.slice(1, 11);
+
+        // console.log(top10Data);
+
+        // Retrieve labels of top 10 countries
+        const labels = top10Data.map((country) => country.Country_text);
+
+        // Retrieve total cases and recovered cases for top 10 countries
+        const totalCases = top10Data.map((country) =>
+          parseInt(country["Total Cases_text"].replace(",", ""))
+        );
+        const recoveredCases = top10Data.map((country) =>
+          parseInt(country["Total Recovered_text"].replace(",", ""))
+        );
+
+        const chartData = {
+          labels: labels,
+          datasets: [
+            {
+              label: "Total Cases",
+              data: totalCases,
+              backgroundColor: "green",
+            },
+            {
+              label: "Recovered Cases",
+              data: recoveredCases,
+              backgroundColor: "yellow",
+            },
+          ],
+        };
+        setChartData(chartData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h2>Top 10 Countries - Total Cases vs Recovered Cases</h2>
+      {chartData && <Bar data={chartData} />}
+    </div>
+  );
+};
+
+export default DualBarChart;
+
+```
+
+Similarly, create one more file called `DualAxisChart.js` in the `components` directory and add the following code to the file:
+
+**DualAxisChart.js**:
+
+```js 
+import { Bar } from "react-chartjs-2";
+import { useState, useEffect } from "react";
+import { fetchData } from "../apiService";
+
+const DualAxisChart = () => {
+  const [chartData, setChartData] = useState(null);
+
+  useEffect(() => {
+    fetchData("/v1")
+      .then((data) => {
+        // Filter out entries with "N/A" in Total Cases_text or Total Recovered_text
+        const filteredData = data.filter(
+          (country) =>
+            country["Total Cases_text"] !== "N/A" &&
+            country["Total Recovered_text"] !== "N/A"
+        );
+
+        // Sort the filtered data based on total cases
+        const sortedData = filteredData.sort(
+          (a, b) => b["Total Cases_text"] - a["Total Cases_text"]
+        );
+
+        // Retrieve only top 10 records excluding the world
+        const top10Data = sortedData.slice(1, 11);
+
+        //console.log(top10Data);
+
+        // Retrieve labels of top 10 countries
+        const labels = top10Data.map((country) => country.Country_text);
+
+        // Retrieve total cases and recovered cases for top 10 countries
+        const totalCases = top10Data.map((country) =>
+          parseInt(country["Total Cases_text"].replace(",", ""))
+        );
+        const recoveredCases = top10Data.map((country) =>
+          parseInt(country["Total Recovered_text"].replace(",", ""))
+        );
+
+        const chartData = {
+          labels: labels, // Array of labels (countries)
+          datasets: [
+            {
+              type: "bar", // Bar dataset for total cases
+              label: "Total Cases", // Label for the bar dataset
+              data: totalCases, // Array of data points for the bar dataset (total cases)
+              backgroundColor: "rgba(255, 99, 132, 0.6)", // Background color of the bars
+            },
+            {
+              type: "line", // Line dataset for recovered cases
+              label: "Recovered Cases", // Label for the line dataset
+              data: recoveredCases, // Array of data points for the line dataset (recovered cases)
+              borderColor: "green",
+              borderWidth: 2, // Width of the line
+              fill: false, // Disable filling the area under the line
+            },
+          ],
+        };
+        setChartData(chartData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h2>Top 10 Countries - Total Cases vs Recovered Cases</h2>
+      {chartData && <Bar data={chartData} />}
+    </div>
+  );
+};
+
+export default DualAxisChart;
+
+```
+
 
 ### Step 5: Modify App component
 
@@ -222,17 +366,22 @@ Open the `src/App.js` file and replace its content with the following code:
 ```javascript
 import LineChart from "./components/LineChart";
 import BarChart from "./components/BarChart";
+import DualBarChart from "./components/DualBarChart";
+import DualAxisChart from "./components/DualAxisChart";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <LineChart />
       <BarChart />
+      <DualBarChart />
+      <DualAxisChart />
     </div>
   );
 }
 
 export default App;
+
 ```
 
 ### Step 6: Run the app
@@ -243,6 +392,9 @@ Save all the files, return to the terminal, and run the following command in the
 npm start
 ```
 
-The app will open in your browser at `http://localhost:3000`, and you should see the line chart, and bar chart displaying COVID-19 data fetched from the API.
+The app will open in your browser at `http://localhost:3000`, and you should see the line chart, bar chart, dual bar chart and dual axis chart displaying COVID-19 data fetched from the API.
 
 Please feel free to customize the components, styles, and API endpoints according to your needs.
+
+
+

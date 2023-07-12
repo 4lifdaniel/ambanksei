@@ -27,11 +27,14 @@ MONGO_DB_NAME=loginAuth
 Replace `<username>` with your `Mongo User Name`.
 Replace `<password>` with your `Mongo Password`.
 Replace `<hostname>` with your `Mongo Host Name`.
+Update `loginAuth` with relevant database name.
 
 ### Step 5: Start the API Application
 ```bash
 nodemon
 ```
+
+## Login Front End
 
 ### Step 6: Open login front end app 
 
